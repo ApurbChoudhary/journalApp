@@ -110,10 +110,13 @@ public class JournalEntryControllerV2 {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    @Autowired
-    private JournalEntryService entryService;
-
-    @Autowired
-    private UserService userService;
+    
+    private final JournalEntryService entryService;
+    private final UserService userService;
+    
+    public JournalEntryControllerV2(JournalEntryService entryService, UserService userService) {
+        this.entryService = entryService;
+        this.userService = userService;
+    }
 
 }

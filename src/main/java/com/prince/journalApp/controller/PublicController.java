@@ -22,8 +22,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PublicController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public PublicController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/addUsers")
     public ResponseEntity<?> addUsers(@RequestBody UserDTO  userDTO) {
